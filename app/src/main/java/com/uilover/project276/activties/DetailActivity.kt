@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 import com.bumptech.glide.Glide
+import com.uilover.project276.Helper.FavoriteManagement
 import com.uilover.project276.Helper.ManagmentCart
 import com.uilover.project276.R
 import com.uilover.project276.databinding.ActivityDetailBinding
@@ -14,6 +15,7 @@ class DetailActivity : AppCompatActivity() {
     lateinit var binding: ActivityDetailBinding
     private lateinit var item: ItemsModel
     private lateinit var managmentCart: ManagmentCart
+    private lateinit var favoriteManagement: FavoriteManagement
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +24,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         managmentCart = ManagmentCart(this)
+        favoriteManagement = FavoriteManagement(this)
 
         bundle()
         initSizeList()
@@ -68,6 +71,25 @@ class DetailActivity : AppCompatActivity() {
             descriptionTxt.text = item.description
             priceTxt.text = "$" + item.price
             ratingTxt.text = item.rating.toString()
+
+
+            if (favoriteManagement.isFavorite(item)) {
+                favBtn.setImageResource(R.drawable.favorite_white)
+                favBtn.setColorFilter(android.graphics.Color.parseColor("#FF3D00")) // Nhuộm sang màu Đỏ bừng rực rỡ
+            } else {
+                favBtn.setImageResource(R.drawable.favorite_white)
+                favBtn.clearColorFilter()
+            }
+
+            favBtn.setOnClickListener {
+                val isFavNow = favoriteManagement.toggleFavorite(item)
+                if (isFavNow) {
+                    favBtn.setColorFilter(android.graphics.Color.parseColor("#FF3D00")) // Thích thì nhuộm Đỏ
+                } else {
+                    favBtn.clearColorFilter()
+                }
+            }
+
 
             item.numberInCart = 1
 

@@ -33,6 +33,9 @@ class MainActivity : AppCompatActivity() {
         binding.cartBtn.setOnClickListener {
             startActivity(Intent(this, CartActivity::class.java))
         }
+        binding.favBtn.setOnClickListener {
+            startActivity(Intent(this, FavoriteActivity::class.java))
+        }
     }
 
     private fun initPopular() {
