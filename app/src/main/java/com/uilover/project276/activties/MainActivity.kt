@@ -39,6 +39,9 @@ class MainActivity : AppCompatActivity() {
         binding.profileImg.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
+        binding.exploreBtn.setOnClickListener {
+            startActivity(Intent(this, ExploreActivity::class.java))
+        }
     }
 
     private fun initPopular() {

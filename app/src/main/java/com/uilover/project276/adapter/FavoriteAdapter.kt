@@ -3,6 +3,7 @@ package com.uilover.project276.adapter
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -29,6 +30,10 @@ class FavoriteAdapter(private val items: ArrayList<ItemsModel>) :
         // dữ liệu lên giao diện
         holder.binding.titleTxt.text = item.title
         holder.binding.priceTxt.text = "$" + item.price
+
+        holder.binding.subtitleTxt.visibility = View.VISIBLE
+
+        holder.binding.subtitleTxt.text = item.extra
        // holder.binding.ratingTxt.text = item.rating.toString()
 
         // Nạp ảnh bằng Glide

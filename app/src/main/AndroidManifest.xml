@@ -26,6 +26,10 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activties.ExploreActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activties.ItemListActivity"
             android:exported="false" />
         <activity
