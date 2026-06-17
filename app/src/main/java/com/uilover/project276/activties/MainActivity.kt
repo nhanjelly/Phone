@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         binding.favBtn.setOnClickListener {
             startActivity(Intent(this, FavoriteActivity::class.java))
         }
+        binding.profileImg.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
     }
 
     private fun initPopular() {
